@@ -36,8 +36,10 @@ def detection_callback(device, adv_data):
     elif adv_data.manufacturer_data:
         m_ids = [hex(k) for k in adv_data.manufacturer_data.keys()]
         beacon_info = f"BLE Device (Manufacturer IDs: {', '.join(m_ids)})"
+        return
     else:
         beacon_info = "Standard BLE Device"
+        return
 
     print(f"[{rssi} dBm] {device.address} ({name}) -> {beacon_info}", flush=True)
 
